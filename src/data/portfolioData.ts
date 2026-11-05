@@ -25,7 +25,8 @@ export const initialPortfolioData: PortfolioData = {
       "As a core member across multiple technical student bodies at VIT Bhopal (including the iOS Club, The Eureka Club, and Bit By Bit Club), I actively champion collaborative development, peer mentorship, and hands-on system building.",
       "My technical foundation bridges robust backend & automation capabilities (Python, AWS, Azure, CI/CD) with thoughtful user experience principles acquired through hands-on industry simulations like the Lloyds Banking Group UX Design program."
     ],
-    philosophy: "Great technology is both mathematically resilient under the hood and effortlessly intuitive on the surface. I design systems that scale reliably while keeping the human experience at the center."
+    philosophy: "Great technology is both mathematically resilient under the hood and effortlessly intuitive on the surface. I design systems that scale reliably while keeping the human experience at the center.",
+    universityLogo: "/logos/vit-bhopal.jpg"
   },
   skills: [
     // Cloud & Automation
@@ -174,7 +175,8 @@ export const initialPortfolioData: PortfolioData = {
         "Intelligent edge-delivery caching and format transcoding",
         "CLI batch processing script for developer productivity"
       ],
-      architecture: "Python Pipeline Client → Cloudinary Transformations API → AWS S3 Asset Lake → Global Fastly CDN Cache"
+      architecture: "Python Pipeline Client → Cloudinary Transformations API → AWS S3 Asset Lake → Global Fastly CDN Cache",
+      logo: "/logos/cloudinary.jpg"
     },
     {
       id: "project-2",
@@ -237,7 +239,8 @@ export const initialPortfolioData: PortfolioData = {
         "Real-time team chat & milestone notification indicators",
         "Responsive, accessible UI with soft glassmorphic aesthetic"
       ],
-      architecture: "React Frontend → RESTful API Server (Node/Express) → MongoDB Atlas Cloud Database"
+      architecture: "React Frontend → RESTful API Server (Node/Express) → MongoDB Atlas Cloud Database",
+      logo: "/logos/vit-bhopal.jpg"
     }
   ],
   experiences: [
@@ -254,7 +257,8 @@ export const initialPortfolioData: PortfolioData = {
         "Helped curate technical onboarding sessions for incoming fresher developers.",
         "Contributed to event logistics, technical problem design, and community hack challenges."
       ],
-      badge: "Core Member • iOS Club"
+      badge: "Core Member • iOS Club",
+      logo: "/logos/ios-club.jpg"
     },
     {
       id: "exp-2",
@@ -269,7 +273,8 @@ export const initialPortfolioData: PortfolioData = {
         "Led project planning and sprint alignment for internal club showcases.",
         "Championed peer knowledge-sharing circles around emerging cloud tools and automation."
       ],
-      badge: "Core Member • Eureka Club"
+      badge: "Core Member • Eureka Club",
+      logo: "/logos/eureka.jpg"
     },
     {
       id: "exp-3",
@@ -284,7 +289,8 @@ export const initialPortfolioData: PortfolioData = {
         "Mentored peers in fundamental data structures, problem-solving, and Python logic.",
         "Co-organized technical quizzes and programming meetups with high engagement."
       ],
-      badge: "Core Member • Bit By Bit"
+      badge: "Core Member • Bit By Bit",
+      logo: "/logos/bitbybit.jpg"
     },
     {
       id: "exp-4",
@@ -299,7 +305,8 @@ export const initialPortfolioData: PortfolioData = {
         "Applied modern component architecture and clean state management.",
         "Awarded official Certificate of Participation from VIT Bhopal University and Sheryians Coding School."
       ],
-      badge: "Hackathon Competitor"
+      badge: "Hackathon Competitor",
+      logo: "/logos/vit-bhopal.jpg"
     }
   ],
   certifications: [
@@ -317,7 +324,8 @@ export const initialPortfolioData: PortfolioData = {
         "Cloud Ingestion & Asset Delivery",
         "Performance & Responsive Breakpoint Optimization"
       ],
-      verificationNote: "Official credential awarded upon demonstrating mastery of programmatic media manipulation, transformation algorithms, and Python cloud SDK execution."
+      verificationNote: "Official credential awarded upon demonstrating mastery of programmatic media manipulation, transformation algorithms, and Python cloud SDK execution.",
+      logo: "/logos/cloudinary.jpg"
     },
     {
       id: "cert-2",
@@ -347,7 +355,8 @@ export const initialPortfolioData: PortfolioData = {
         "Rapid Prototyping",
         "Frontend Engineering"
       ],
-      verificationNote: "Officially certified for participating and engineering solutions at the university hackathon recognized by academic directors and Sheryians Coding School."
+      verificationNote: "Officially certified for participating and engineering solutions at the university hackathon recognized by academic directors and Sheryians Coding School.",
+      logo: "/logos/vit-bhopal.jpg"
     }
   ]
 }

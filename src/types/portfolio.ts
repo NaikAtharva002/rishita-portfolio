@@ -22,6 +22,7 @@ export interface ProjectItem {
   accentColor: string
   features: string[]
   architecture: string
+  logo?: string
 }
 
 export interface ExperienceItem {
@@ -34,6 +35,7 @@ export interface ExperienceItem {
   description: string
   achievements: string[]
   badge: string
+  logo?: string
 }
 
 export interface CertificationItem {
@@ -46,6 +48,7 @@ export interface CertificationItem {
   badgeText: string
   skillsCovered: string[]
   verificationNote: string
+  logo?: string
 }
 
 export interface PortfolioData {
@@ -65,6 +68,7 @@ export interface PortfolioData {
     bioShort: string
     bioLong: string[]
     philosophy: string
+    universityLogo?: string
   }
   skills: SkillItem[]
   projects: ProjectItem[]

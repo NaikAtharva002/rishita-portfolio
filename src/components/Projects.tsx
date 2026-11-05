@@ -110,10 +110,14 @@ export const Projects: React.FC<ProjectsProps> = ({
                       </button>
                     </div>
 
-                    {/* Stylized Architectural Diagram / UI Mockup Content */}
+                    {/* Stylized Architectural Diagram / UI Mockup Content with Logo */}
                     <div className="my-auto py-2 flex flex-col items-center justify-center text-center">
-                      <div className="w-12 h-12 rounded-2xl bg-white/90 shadow-md flex items-center justify-center text-pink-600 mb-2 group-hover:scale-110 transition-transform duration-300">
-                        <Sparkles className="w-6 h-6 text-pink-600" />
+                      <div className="w-12 h-12 rounded-2xl bg-white/95 shadow-md p-1 border border-pink-200/80 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+                        {project.logo ? (
+                          <img src={project.logo} alt={project.title} className="w-full h-full object-contain" />
+                        ) : (
+                          <Sparkles className="w-6 h-6 text-pink-600" />
+                        )}
                       </div>
                       <span className="text-xs font-mono font-bold text-zinc-800 tracking-tight">
                         {project.title}

@@ -44,10 +44,14 @@ export const Certifications: React.FC<CertificationsProps> = ({
               className="glass-panel p-6 sm:p-7 rounded-3xl flex flex-col justify-between hover:border-pink-300 hover:shadow-[0_16px_40px_-12px_rgba(236,72,153,0.18)] transition-all duration-300 group"
             >
               <div>
-                {/* Top Badge & Issuer */}
+                {/* Top Badge & Issuer with Authentic Logo */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-pink-100 flex items-center justify-center text-pink-600 group-hover:scale-105 transition-transform">
-                    <Award className="w-5 h-5" />
+                  <div className="w-11 h-11 rounded-2xl bg-white p-1.5 border border-pink-200/90 shadow-xs flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform">
+                    {cert.logo ? (
+                      <img src={cert.logo} alt={cert.issuer} className="w-full h-full object-contain" />
+                    ) : (
+                      <Award className="w-5 h-5 text-pink-600" />
+                    )}
                   </div>
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-pink-700 bg-pink-100/90 px-2.5 py-0.5 rounded-full">
                     {cert.badgeText}
@@ -127,8 +131,12 @@ export const Certifications: React.FC<CertificationsProps> = ({
               </button>
 
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-pink-100 flex items-center justify-center text-pink-600">
-                  <Award className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-white p-1.5 border border-pink-200/90 shadow-xs flex items-center justify-center overflow-hidden">
+                  {selectedCert.logo ? (
+                    <img src={selectedCert.logo} alt={selectedCert.issuer} className="w-full h-full object-contain" />
+                  ) : (
+                    <Award className="w-6 h-6 text-pink-600" />
+                  )}
                 </div>
                 <div>
                   <span className="text-[10px] font-mono uppercase tracking-wider text-pink-600 font-bold block">

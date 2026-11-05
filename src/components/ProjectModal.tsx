@@ -31,20 +31,27 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </button>
 
         {/* Modal Header */}
-        <div className="mb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100/90 text-pink-700 text-xs font-mono font-medium mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-pink-500" />
-            <span>{project.category}</span>
-            <span>•</span>
-            <span>{project.status}</span>
-          </div>
+        <div className="mb-6 flex items-start gap-4">
+          {project.logo && (
+            <div className="w-14 h-14 rounded-2xl bg-white p-1.5 border border-pink-200/90 shadow-xs shrink-0 overflow-hidden flex items-center justify-center">
+              <img src={project.logo} alt={project.title} className="w-full h-full object-contain" />
+            </div>
+          )}
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100/90 text-pink-700 text-xs font-mono font-medium mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-pink-500" />
+              <span>{project.category}</span>
+              <span>•</span>
+              <span>{project.status}</span>
+            </div>
 
-          <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-zinc-900">
-            {project.title}
-          </h2>
-          <p className="text-sm font-medium text-pink-600 mt-1">
-            {project.subtitle}
-          </p>
+            <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-zinc-900">
+              {project.title}
+            </h2>
+            <p className="text-sm font-medium text-pink-600 mt-1">
+              {project.subtitle}
+            </p>
+          </div>
         </div>
 
         {/* Project Metrics Callout */}

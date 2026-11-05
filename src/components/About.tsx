@@ -66,9 +66,13 @@ export const About: React.FC<AboutProps> = ({ data, isEditMode, onUpdatePersonal
 
               {/* Education Block Grounded in VIT Bhopal Profile */}
               <div className="p-4 rounded-2xl bg-pink-50/70 border border-pink-100/90 mb-6">
-                <div className="flex items-start gap-3">
-                  <div className="p-2.5 rounded-xl bg-white shadow-xs text-pink-600">
-                    <GraduationCap className="w-5 h-5" />
+                <div className="flex items-start gap-3.5">
+                  <div className="w-12 h-12 rounded-xl bg-white p-1 border border-pink-200/80 shadow-xs shrink-0 overflow-hidden flex items-center justify-center">
+                    <img
+                      src={data.personal.universityLogo || "/logos/vit-bhopal.jpg"}
+                      alt="VIT Bhopal University"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div>
                     <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 block">
@@ -87,21 +91,24 @@ export const About: React.FC<AboutProps> = ({ data, isEditMode, onUpdatePersonal
                 </div>
               </div>
 
-              {/* Campus Leadership & Clubs */}
+              {/* Campus Leadership & Clubs with Real Logos */}
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 block mb-2.5">
                   Active Student Leadership
                 </span>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-white border border-pink-200 text-zinc-800 shadow-2xs">
-                    🍎 iOS Club — Core Member
-                  </span>
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-white border border-pink-200 text-zinc-800 shadow-2xs">
-                    💡 The Eureka Club — Core Member
-                  </span>
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-white border border-pink-200 text-zinc-800 shadow-2xs">
-                    ⚡ Bit By Bit Club — Core Member
-                  </span>
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-pink-200 text-zinc-800 shadow-2xs text-xs font-medium">
+                    <img src="/logos/ios-club.jpg" alt="iOS Club" className="w-4 h-4 rounded object-contain bg-black" />
+                    <span>iOS Club — Core Member</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-pink-200 text-zinc-800 shadow-2xs text-xs font-medium">
+                    <img src="/logos/eureka.jpg" alt="The Eureka Club" className="w-4 h-4 rounded-full object-cover" />
+                    <span>The Eureka Club — Core Member</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-pink-200 text-zinc-800 shadow-2xs text-xs font-medium">
+                    <img src="/logos/bitbybit.jpg" alt="Bit By Bit Club" className="w-4 h-4 rounded object-contain" />
+                    <span>Bit By Bit Club — Core Member</span>
+                  </div>
                 </div>
               </div>
 

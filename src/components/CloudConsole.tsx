@@ -244,19 +244,28 @@ export const CloudConsole: React.FC = () => {
             </span>
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-zinc-900">iOS Club</span>
+                <div className="flex items-center gap-2">
+                  <img src="/logos/ios-club.jpg" alt="iOS Club" className="w-5 h-5 rounded object-contain bg-black" />
+                  <span className="font-semibold text-zinc-900">iOS Club</span>
+                </div>
                 <span className="font-mono text-[10px] text-pink-600 bg-pink-50 px-2 py-0.5 rounded-full border border-pink-200">
                   Core Member
                 </span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-zinc-900">The Eureka Club</span>
+                <div className="flex items-center gap-2">
+                  <img src="/logos/eureka.jpg" alt="The Eureka Club" className="w-5 h-5 rounded-full object-cover" />
+                  <span className="font-semibold text-zinc-900">The Eureka Club</span>
+                </div>
                 <span className="font-mono text-[10px] text-pink-600 bg-pink-50 px-2 py-0.5 rounded-full border border-pink-200">
                   Core Member
                 </span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-zinc-900">Bit By Bit Club</span>
+                <div className="flex items-center gap-2">
+                  <img src="/logos/bitbybit.jpg" alt="Bit By Bit Club" className="w-5 h-5 rounded object-contain" />
+                  <span className="font-semibold text-zinc-900">Bit By Bit Club</span>
+                </div>
                 <span className="font-mono text-[10px] text-pink-600 bg-pink-50 px-2 py-0.5 rounded-full border border-pink-200">
                   Core Member
                 </span>

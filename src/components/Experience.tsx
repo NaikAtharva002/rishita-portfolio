@@ -64,28 +64,39 @@ export const Experience: React.FC<ExperienceProps> = ({
               {/* Experience Card */}
               <div className="glass-panel rounded-3xl p-6 sm:p-8 hover:border-pink-300 hover:shadow-[0_12px_36px_-10px_rgba(236,72,153,0.15)] transition-all duration-300">
                 
-                {/* Header Row: Role & Organization */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                  <div>
-                    {isEditMode ? (
-                      <input
-                        type="text"
-                        value={exp.role}
-                        onChange={(e) => onUpdateExperience({ ...exp, role: e.target.value })}
-                        className="font-heading font-bold text-xl text-zinc-900 bg-white border border-pink-300 rounded p-1 mb-1"
-                      />
-                    ) : (
-                      <h3 className="font-heading font-bold text-xl sm:text-2xl text-zinc-900 group-hover:text-pink-600 transition-colors">
-                        {exp.role}
-                      </h3>
+                {/* Header Row: Role & Organization with Logo */}
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+                  <div className="flex items-start gap-3.5">
+                    {exp.logo && (
+                      <div className="w-12 h-12 rounded-2xl bg-white p-1 border border-pink-200/90 shadow-xs shrink-0 overflow-hidden flex items-center justify-center mt-0.5">
+                        <img
+                          src={exp.logo}
+                          alt={exp.organization}
+                          className="w-full h-full object-contain rounded-xl"
+                        />
+                      </div>
                     )}
+                    <div>
+                      {isEditMode ? (
+                        <input
+                          type="text"
+                          value={exp.role}
+                          onChange={(e) => onUpdateExperience({ ...exp, role: e.target.value })}
+                          className="font-heading font-bold text-xl text-zinc-900 bg-white border border-pink-300 rounded p-1 mb-1"
+                        />
+                      ) : (
+                        <h3 className="font-heading font-bold text-xl sm:text-2xl text-zinc-900 group-hover:text-pink-600 transition-colors">
+                          {exp.role}
+                        </h3>
+                      )}
 
-                    <div className="flex items-center gap-2 text-sm font-semibold text-pink-700 mt-0.5">
-                      <Building className="w-4 h-4 text-pink-500" />
-                      <span>{exp.organization}</span>
-                      <span className="text-[11px] font-mono text-pink-600 bg-pink-100/80 px-2 py-0.5 rounded-full">
-                        {exp.organizationType}
-                      </span>
+                      <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-pink-700 mt-0.5">
+                        <Building className="w-4 h-4 text-pink-500" />
+                        <span>{exp.organization}</span>
+                        <span className="text-[11px] font-mono text-pink-600 bg-pink-100/80 px-2 py-0.5 rounded-full font-medium">
+                          {exp.organizationType}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
