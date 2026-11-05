@@ -20,7 +20,6 @@ export const Skills: React.FC<SkillsProps> = ({
 }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All')
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const [editingSkillId, setEditingSkillId] = useState<string | null>(null)
 
   const categories = [
     'All',
@@ -44,21 +43,64 @@ export const Skills: React.FC<SkillsProps> = ({
     setActiveCategory(cat)
   }
 
+  // Category-specific high-contrast styling tokens
+  const getCategoryStyles = (category: string) => {
+    switch (category) {
+      case 'Cloud & Automation':
+        return {
+          badge: 'bg-emerald-100/90 text-emerald-800 border-emerald-200',
+          bar: 'bg-gradient-to-r from-emerald-600 to-teal-500',
+          track: 'bg-emerald-100/60',
+          accent: 'text-emerald-700',
+        }
+      case 'Languages & Dev':
+        return {
+          badge: 'bg-teal-100/90 text-teal-800 border-teal-200',
+          bar: 'bg-gradient-to-r from-teal-600 to-emerald-600',
+          track: 'bg-teal-100/60',
+          accent: 'text-teal-700',
+        }
+      case 'UI/UX & Design':
+        return {
+          badge: 'bg-pink-100/90 text-pink-700 border-pink-200',
+          bar: 'bg-gradient-to-r from-pink-500 to-rose-600',
+          track: 'bg-pink-100/60',
+          accent: 'text-pink-600',
+        }
+      case 'Tools & Platforms':
+        return {
+          badge: 'bg-zinc-100 text-zinc-800 border-zinc-200',
+          bar: 'bg-gradient-to-r from-zinc-700 via-zinc-800 to-emerald-700',
+          track: 'bg-zinc-100',
+          accent: 'text-zinc-800',
+        }
+      case 'Core Strengths':
+      default:
+        return {
+          badge: 'bg-amber-100/90 text-amber-800 border-amber-200',
+          bar: 'bg-gradient-to-r from-amber-500 to-rose-500',
+          track: 'bg-amber-100/60',
+          accent: 'text-amber-700',
+        }
+    }
+  }
+
   return (
     <section id="skills" className="py-24 relative overflow-hidden">
-      {/* Pink ambient background accent */}
-      <div className="absolute top-1/3 right-0 -z-10 w-[450px] h-[450px] rounded-full bg-pink-200/20 blur-3xl pointer-events-none" />
+      {/* Dual ambient background accent */}
+      <div className="absolute top-1/3 right-0 -z-10 w-[450px] h-[450px] rounded-full bg-emerald-100/25 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-10 -z-10 w-[400px] h-[400px] rounded-full bg-pink-200/20 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-100/80 border border-pink-200 text-xs font-mono font-medium text-pink-700 mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-pink-500" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono font-medium text-emerald-800 mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
               <span>02 // Competencies & Stack</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-zinc-900">
-              Technical & Creative <span className="pink-gradient-text">Mastery</span>
+              Technical & Creative <span className="emerald-gradient-text">Mastery</span>
             </h2>
             <p className="mt-3 text-base sm:text-lg text-zinc-600 max-w-xl">
               Authentic, battle-tested capabilities spanning distributed cloud pipelines, Python automation, and research-led interface craft.
@@ -72,7 +114,7 @@ export const Skills: React.FC<SkillsProps> = ({
                 soundFX.playChime()
                 onAddSkill()
               }}
-              className="mt-4 md:mt-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-pink-600 hover:bg-pink-700 text-white text-xs font-mono font-semibold shadow-sm transition-all"
+              className="mt-4 md:mt-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-mono font-semibold shadow-sm transition-all"
             >
               <Plus className="w-4 h-4" />
               <span>Add New Skill</span>
@@ -83,21 +125,28 @@ export const Skills: React.FC<SkillsProps> = ({
         {/* Filters and Search Bar */}
         <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between mb-10 pb-6 border-b border-pink-200/60">
           
-          {/* Category Tabs */}
+          {/* Category Tabs with Dynamic Contextual Color */}
           <div className="flex flex-wrap items-center gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => handleCategoryChange(cat)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
-                  activeCategory === cat
-                    ? 'bg-pink-600 text-white shadow-xs scale-105'
-                    : 'bg-white/80 text-zinc-600 hover:text-pink-600 hover:bg-pink-50 border border-pink-100'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {categories.map((cat) => {
+              const isActive = activeCategory === cat
+              return (
+                <button
+                  key={cat}
+                  onClick={() => handleCategoryChange(cat)}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                    isActive
+                      ? cat === 'Cloud & Automation'
+                        ? 'bg-emerald-800 text-white shadow-xs scale-105'
+                        : cat === 'UI/UX & Design'
+                        ? 'bg-pink-600 text-white shadow-xs scale-105'
+                        : 'bg-zinc-900 text-white shadow-xs scale-105'
+                      : 'bg-white/80 text-zinc-600 hover:text-emerald-800 hover:bg-emerald-50/70 border border-pink-100'
+                  }`}
+                >
+                  {cat}
+                </button>
+              )
+            })}
           </div>
 
           {/* Search Input */}
@@ -108,7 +157,7 @@ export const Skills: React.FC<SkillsProps> = ({
               placeholder="Search skills..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-1.5 text-xs rounded-full bg-white/80 border border-pink-200/80 focus:outline-none focus:ring-2 focus:ring-pink-400/50 focus:border-pink-400 text-zinc-800 placeholder-zinc-400"
+              className="w-full pl-9 pr-4 py-1.5 text-xs rounded-full bg-white/90 border border-emerald-200/80 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-500 text-zinc-800 placeholder-zinc-400"
             />
           </div>
 
@@ -117,17 +166,17 @@ export const Skills: React.FC<SkillsProps> = ({
         {/* Skills Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredSkills.map((skill) => {
-            const isEditing = editingSkillId === skill.id || isEditMode
+            const styles = getCategoryStyles(skill.category)
 
             return (
               <div
                 key={skill.id}
-                className="group relative p-6 rounded-2xl glass-panel hover:border-pink-300 hover:shadow-[0_12px_30px_-10px_rgba(236,72,153,0.18)] transition-all duration-300 flex flex-col justify-between"
+                className="group relative p-6 rounded-2xl glass-panel hover:border-emerald-300 hover:shadow-[0_12px_30px_-10px_rgba(5,150,105,0.18)] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top Bar: Category badge & level tag */}
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-pink-700 bg-pink-100/80 px-2.5 py-0.5 rounded-md font-semibold">
+                    <span className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md font-semibold border ${styles.badge}`}>
                       {skill.category}
                     </span>
                     <span className="text-xs font-mono font-medium text-zinc-500">
@@ -141,10 +190,10 @@ export const Skills: React.FC<SkillsProps> = ({
                       type="text"
                       value={skill.name}
                       onChange={(e) => onUpdateSkill({ ...skill, name: e.target.value })}
-                      className="w-full font-heading font-bold text-base text-zinc-900 bg-white border border-pink-300 rounded px-2 py-1 mb-2"
+                      className="w-full font-heading font-bold text-base text-zinc-900 bg-white border border-emerald-300 rounded px-2 py-1 mb-2"
                     />
                   ) : (
-                    <h3 className="font-heading font-bold text-base text-zinc-900 group-hover:text-pink-600 transition-colors mb-2">
+                    <h3 className={`font-heading font-bold text-base text-zinc-900 group-hover:${styles.accent} transition-colors mb-2`}>
                       {skill.name}
                     </h3>
                   )}
@@ -156,7 +205,7 @@ export const Skills: React.FC<SkillsProps> = ({
                       value={skill.highlight || ''}
                       onChange={(e) => onUpdateSkill({ ...skill, highlight: e.target.value })}
                       placeholder="Add real-world application..."
-                      className="w-full text-xs text-zinc-600 bg-white border border-pink-300 rounded p-1 mb-3 font-sans"
+                      className="w-full text-xs text-zinc-600 bg-white border border-emerald-300 rounded p-1 mb-3 font-sans"
                     />
                   ) : (
                     <p className="text-xs text-zinc-600 leading-relaxed mb-4">
@@ -187,7 +236,7 @@ export const Skills: React.FC<SkillsProps> = ({
                           else if (val >= 60) label = 'Intermediate'
                           onUpdateSkill({ ...skill, level: val, levelLabel: label })
                         }}
-                        className="w-full accent-pink-600 cursor-pointer"
+                        className="w-full accent-emerald-700 cursor-pointer"
                       />
                       <button
                         onClick={() => onDeleteSkill(skill.id)}
@@ -198,9 +247,9 @@ export const Skills: React.FC<SkillsProps> = ({
                       </button>
                     </div>
                   ) : (
-                    <div className="w-full h-2 rounded-full bg-pink-100/80 overflow-hidden">
+                    <div className={`w-full h-2 rounded-full overflow-hidden ${styles.track}`}>
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-pink-500 to-rose-600 transition-all duration-700 ease-out"
+                        className={`h-full rounded-full ${styles.bar} transition-all duration-700 ease-out`}
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
@@ -213,14 +262,14 @@ export const Skills: React.FC<SkillsProps> = ({
 
         {/* Empty State */}
         {filteredSkills.length === 0 && (
-          <div className="text-center py-16 bg-white/50 rounded-2xl border border-pink-200">
+          <div className="text-center py-16 bg-white/50 rounded-2xl border border-emerald-200">
             <p className="text-zinc-600 font-medium">No skills match "{searchQuery}" in {activeCategory}.</p>
             <button
               onClick={() => {
                 setActiveCategory('All')
                 setSearchQuery('')
               }}
-              className="mt-3 text-xs font-mono text-pink-600 hover:underline"
+              className="mt-3 text-xs font-mono text-emerald-700 hover:underline"
             >
               Reset filters
             </button>

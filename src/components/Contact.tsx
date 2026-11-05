@@ -56,10 +56,10 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
 
       // Confetti celebration blast!
       confetti({
-        particleCount: 80,
-        spread: 70,
+        particleCount: 85,
+        spread: 75,
         origin: { y: 0.6 },
-        colors: ['#ec4899', '#f472b6', '#fda4af', '#f43f5e', '#be185d'],
+        colors: ['#059669', '#10b981', '#ec4899', '#f472b6', '#064e3b', '#be185d'],
       })
 
       // Reset form
@@ -75,21 +75,21 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
   }
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-gradient-to-t from-pink-100/50 via-pink-50/20 to-transparent">
-      {/* Background pink atmosphere */}
-      <div className="absolute bottom-0 right-1/4 -z-10 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-pink-300/30 to-rose-200/20 blur-3xl pointer-events-none" />
+    <section id="contact" className="py-24 relative overflow-hidden bg-gradient-to-t from-emerald-100/30 via-pink-50/20 to-transparent">
+      {/* Background dual atmosphere */}
+      <div className="absolute bottom-0 right-1/4 -z-10 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-emerald-300/20 to-rose-200/20 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Headline per Master Prompt */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-100/80 border border-pink-200 text-xs font-mono font-medium text-pink-700 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-pink-500" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono font-medium text-emerald-800 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
             <span>06 // Connect & Collaborate</span>
           </div>
           <h2 className="text-4xl sm:text-6xl font-display font-extrabold tracking-tight text-zinc-900 leading-tight">
             Let's create something <br />
-            <span className="pink-gradient-text">extraordinary.</span>
+            <span className="emerald-gradient-text">extraordinary.</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-600 max-w-xl mx-auto">
             Whether you have an upcoming cloud automation challenge, an apprenticeship opportunity, or wish to connect — I'd love to hear from you.
@@ -105,21 +105,21 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
             {/* Quick Email Card with Copy Trigger */}
             <div className="glass-panel p-6 rounded-3xl relative overflow-hidden">
               <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-10 rounded-xl bg-pink-100 flex items-center justify-center text-pink-600">
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700">
                   <Mail className="w-5 h-5" />
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors"
                 >
                   {copiedEmail ? (
                     <>
                       <Check className="w-3 h-3 text-emerald-600" />
-                      <span className="text-emerald-700 font-semibold">Copied!</span>
+                      <span className="text-emerald-800 font-semibold">Copied!</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3 h-3 text-pink-500" />
+                      <Copy className="w-3 h-3 text-emerald-600" />
                       <span>Copy Email</span>
                     </>
                   )}
@@ -131,7 +131,7 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
               </span>
               <a
                 href={`mailto:${data.personal.email}`}
-                className="text-base font-bold text-zinc-900 hover:text-pink-600 transition-colors break-all"
+                className="text-base font-bold text-zinc-900 hover:text-emerald-700 transition-colors break-all"
               >
                 {data.personal.email}
               </a>
@@ -149,14 +149,14 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => soundFX.playClick()}
-                className="flex items-center justify-between p-3.5 rounded-2xl bg-white/80 border border-pink-100 hover:border-pink-300 hover:shadow-xs transition-all group"
+                className="flex items-center justify-between p-3.5 rounded-2xl bg-white/80 border border-emerald-100 hover:border-emerald-300 hover:shadow-xs transition-all group"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform">
                     <LinkedinIcon className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-sm font-bold text-zinc-900 block group-hover:text-pink-600 transition-colors">
+                    <span className="text-sm font-bold text-zinc-900 block group-hover:text-emerald-800 transition-colors">
                       LinkedIn Network
                     </span>
                     <span className="text-xs text-zinc-500 font-mono">
@@ -164,7 +164,7 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
                     </span>
                   </div>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-pink-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-emerald-700 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
               </a>
 
               {/* GitHub */}
@@ -173,14 +173,14 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => soundFX.playClick()}
-                className="flex items-center justify-between p-3.5 rounded-2xl bg-white/80 border border-pink-100 hover:border-pink-300 hover:shadow-xs transition-all group"
+                className="flex items-center justify-between p-3.5 rounded-2xl bg-white/80 border border-emerald-100 hover:border-emerald-300 hover:shadow-xs transition-all group"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-zinc-100 text-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
                     <GithubIcon className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-sm font-bold text-zinc-900 block group-hover:text-pink-600 transition-colors">
+                    <span className="text-sm font-bold text-zinc-900 block group-hover:text-emerald-800 transition-colors">
                       GitHub Repositories
                     </span>
                     <span className="text-xs text-zinc-500 font-mono">
@@ -188,12 +188,12 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
                     </span>
                   </div>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-pink-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-emerald-700 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
               </a>
 
               {/* Campus Location */}
-              <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-pink-50/60 border border-pink-100">
-                <div className="w-9 h-9 rounded-xl bg-white text-pink-600 flex items-center justify-center shadow-2xs">
+              <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-200/70">
+                <div className="w-9 h-9 rounded-xl bg-white text-emerald-700 flex items-center justify-center shadow-2xs">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -215,7 +215,7 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
               
               {isSubmitted ? (
                 <div className="py-12 flex flex-col items-center justify-center text-center animate-in zoom-in-95 duration-300">
-                  <div className="w-16 h-16 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center mb-4 shadow-sm animate-bounce">
+                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 shadow-sm animate-bounce">
                     <Check className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-heading font-bold text-zinc-900 mb-2">
@@ -229,7 +229,7 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
                       soundFX.playClick()
                       setIsSubmitted(false)
                     }}
-                    className="px-6 py-2.5 rounded-full bg-pink-600 hover:bg-pink-700 text-white text-xs font-semibold shadow-sm transition-colors"
+                    className="px-6 py-2.5 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-semibold shadow-sm transition-colors"
                   >
                     Send Another Note
                   </button>
@@ -257,7 +257,7 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
                         className={`w-full px-4 py-2.5 rounded-xl bg-white/90 border text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 transition-all ${
                           errors.name
                             ? 'border-red-400 focus:ring-red-200'
-                            : 'border-pink-200 focus:border-pink-500 focus:ring-pink-200'
+                            : 'border-emerald-200 focus:border-emerald-600 focus:ring-emerald-200'
                         }`}
                       />
                       {errors.name && (
@@ -277,7 +277,7 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
                         className={`w-full px-4 py-2.5 rounded-xl bg-white/90 border text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 transition-all ${
                           errors.email
                             ? 'border-red-400 focus:ring-red-200'
-                            : 'border-pink-200 focus:border-pink-500 focus:ring-pink-200'
+                            : 'border-emerald-200 focus:border-emerald-600 focus:ring-emerald-200'
                         }`}
                       />
                       {errors.email && (
@@ -299,7 +299,7 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
                       className={`w-full px-4 py-2.5 rounded-xl bg-white/90 border text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 transition-all ${
                         errors.subject
                           ? 'border-red-400 focus:ring-red-200'
-                          : 'border-pink-200 focus:border-pink-500 focus:ring-pink-200'
+                          : 'border-emerald-200 focus:border-emerald-600 focus:ring-emerald-200'
                       }`}
                     />
                     {errors.subject && (
@@ -320,7 +320,7 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
                       className={`w-full px-4 py-2.5 rounded-xl bg-white/90 border text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 transition-all ${
                         errors.message
                           ? 'border-red-400 focus:ring-red-200'
-                          : 'border-pink-200 focus:border-pink-500 focus:ring-pink-200'
+                          : 'border-emerald-200 focus:border-emerald-600 focus:ring-emerald-200'
                       }`}
                     />
                     {errors.message && (
@@ -328,18 +328,18 @@ export const Contact: React.FC<ContactProps> = ({ data }) => {
                     )}
                   </div>
 
-                  {/* Submit Button */}
+                  {/* Submit Button in High-Contrast Deep Forest / Obsidian */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-pink-500 hover:from-pink-500 hover:to-rose-600 text-white font-semibold text-sm shadow-[0_10px_25px_-5px_rgba(236,72,153,0.38)] hover:shadow-[0_14px_30px_-5px_rgba(236,72,153,0.48)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 rounded-full bg-gradient-to-r from-emerald-950 via-zinc-900 to-emerald-900 hover:from-emerald-900 hover:to-zinc-800 text-white font-semibold text-sm border border-emerald-700/40 shadow-[0_10px_25px_-5px_rgba(6,78,59,0.38)] hover:shadow-[0_14px_30px_-5px_rgba(6,78,59,0.48)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     ) : (
                       <>
                         <span>Transmit Message</span>
-                        <Send className="w-4 h-4" />
+                        <Send className="w-4 h-4 text-emerald-400" />
                       </>
                     )}
                   </button>

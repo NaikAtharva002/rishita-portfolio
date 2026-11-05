@@ -49,9 +49,9 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
 
   return (
     <div className="relative w-full max-w-[450px] mx-auto perspective-container select-none">
-      {/* Layer 0: Ambient Backlight Atmosphere */}
-      <div className="absolute -inset-2 -z-20 rounded-[3rem] bg-gradient-to-tr from-pink-400/25 via-rose-300/20 to-pink-100/10 blur-3xl pointer-events-none animate-pulse-glow" />
-      <div className="absolute -bottom-6 -right-6 -z-20 w-44 h-44 rounded-full bg-rose-300/20 blur-2xl pointer-events-none" />
+      {/* Layer 0: Ambient Backlight Atmosphere (Rose + Emerald depth) */}
+      <div className="absolute -inset-2 -z-20 rounded-[3rem] bg-gradient-to-tr from-pink-400/20 via-emerald-300/15 to-pink-100/10 blur-3xl pointer-events-none animate-pulse-glow" />
+      <div className="absolute -bottom-6 -right-6 -z-20 w-44 h-44 rounded-full bg-emerald-400/15 blur-2xl pointer-events-none" />
 
       {/* Layer 1: 3D Interactive Card Container */}
       <div
@@ -63,7 +63,7 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
           transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(${isHovered ? 1.015 : 1}, ${isHovered ? 1.015 : 1}, 1)`,
           transition: isHovered ? 'transform 0.08s ease-out' : 'transform 0.5s ease-out',
         }}
-        className="relative w-full rounded-[2.5rem] bg-gradient-to-b from-white/90 via-pink-50/50 to-white/95 backdrop-blur-xl border border-pink-200/90 shadow-[0_20px_50px_-15px_rgba(236,72,153,0.18)] p-4 sm:p-5 pb-3 overflow-hidden flex flex-col items-center preserve-3d"
+        className="relative w-full rounded-[2.5rem] bg-gradient-to-b from-white/92 via-pink-50/40 to-white/95 backdrop-blur-xl border border-pink-200/90 shadow-[0_20px_50px_-15px_rgba(236,72,153,0.18)] p-4 sm:p-5 pb-3 overflow-hidden flex flex-col items-center preserve-3d"
       >
         {/* Dynamic Specular Light Glare */}
         <div
@@ -75,16 +75,16 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
         />
 
         {/* Subtle Decorative Arch Border Line inside */}
-        <div className="absolute inset-2.5 rounded-[2.2rem] border border-dashed border-pink-200/70 pointer-events-none" />
+        <div className="absolute inset-2.5 rounded-[2.2rem] border border-dashed border-pink-200/60 pointer-events-none" />
 
-        {/* Top Header Pill inside Pedestal */}
+        {/* Top Header Pill: Crisp Forest Emerald Telemetry Badge */}
         <div className="z-20 w-full flex items-center justify-between px-2 pt-1 mb-2">
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-pink-200/90 shadow-2xs">
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50/90 border border-emerald-300/80 shadow-2xs">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-600"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
             </span>
-            <span className="font-mono text-[10.5px] text-zinc-700 font-semibold tracking-tight">
+            <span className="font-mono text-[10.5px] text-emerald-900 font-semibold tracking-tight">
               Cloud & Automation
             </span>
           </div>
@@ -98,13 +98,13 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
         {/* Floating Badge (Left): Verified Cloudinary Credential */}
         <div
           style={{ transform: 'translateZ(30px)' }}
-          className="absolute top-16 -left-3 z-30 hidden sm:flex items-center gap-2 p-2 pr-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-pink-200 shadow-[0_10px_25px_-5px_rgba(236,72,153,0.22)] hover:scale-105 transition-transform duration-200"
+          className="absolute top-16 -left-3 z-30 hidden sm:flex items-center gap-2 p-2 pr-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-emerald-200 shadow-[0_10px_25px_-5px_rgba(6,78,59,0.18)] hover:scale-105 transition-transform duration-200"
         >
           <div className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center p-0.5 shrink-0 overflow-hidden">
             <img src="/logos/cloudinary.jpg" alt="Cloudinary" className="w-full h-full object-contain" />
           </div>
           <div className="text-left">
-            <span className="text-[9px] font-mono uppercase tracking-wider text-zinc-400 block font-semibold">
+            <span className="text-[9px] font-mono uppercase tracking-wider text-emerald-700 block font-bold">
               Certified
             </span>
             <span className="text-xs font-bold text-zinc-800 leading-none">
@@ -155,15 +155,15 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
 
         {/* Mobile-Only Twin Credential Ribbon */}
         <div className="sm:hidden z-20 w-full grid grid-cols-2 gap-2 mt-2 mb-2">
-          <div className="flex items-center gap-1.5 p-1.5 rounded-xl bg-white/90 border border-pink-200">
+          <div className="flex items-center gap-1.5 p-1.5 rounded-xl bg-emerald-50/90 border border-emerald-200">
             <img src="/logos/cloudinary.jpg" alt="Cloudinary" className="w-5 h-5 rounded object-contain shrink-0" />
             <div className="text-left truncate">
-              <span className="text-[8px] font-mono text-zinc-400 uppercase block font-semibold">Certified</span>
+              <span className="text-[8px] font-mono text-emerald-700 uppercase block font-semibold">Certified</span>
               <span className="text-[10px] font-bold text-zinc-800 leading-tight block truncate">Media IQ Python</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5 p-1.5 rounded-xl bg-white/90 border border-pink-200">
+          <div className="flex items-center gap-1.5 p-1.5 rounded-xl bg-pink-50/90 border border-pink-200">
             <div className="flex -space-x-1 items-center shrink-0">
               <img src="/logos/ios-club.jpg" alt="iOS" className="w-4 h-4 rounded-full bg-black object-contain" />
               <img src="/logos/eureka.jpg" alt="Eureka" className="w-4 h-4 rounded-full object-cover" />
@@ -183,13 +183,13 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({
               <h3 className="font-heading font-bold text-sm text-zinc-900 leading-tight">
                 {name}
               </h3>
-              <p className="font-mono text-[10.5px] text-pink-600 font-medium">
+              <p className="font-mono text-[10.5px] text-emerald-800 font-semibold">
                 {title}
               </p>
             </div>
             
-            <div className="flex items-center gap-1 px-2.5 py-1 rounded-xl bg-pink-50 text-[10px] font-mono text-zinc-600 border border-pink-200/60">
-              <MapPin className="w-3 h-3 text-pink-500" />
+            <div className="flex items-center gap-1 px-2.5 py-1 rounded-xl bg-emerald-50 text-[10px] font-mono text-emerald-900 border border-emerald-200/70 font-medium">
+              <MapPin className="w-3 h-3 text-emerald-600" />
               <span>{location.split(',')[0]}</span>
             </div>
           </div>
