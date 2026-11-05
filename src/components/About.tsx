@@ -43,10 +43,14 @@ export const About: React.FC<AboutProps> = ({ data, isEditMode, onUpdatePersonal
               <div className="relative mb-6">
                 <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-pink-100 via-rose-50 to-pink-200/60 border border-pink-200/80 flex flex-col items-center justify-center relative overflow-hidden p-6 text-center shadow-inner">
                   
-                  {/* Subtle avatar badge illustration */}
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-pink-500 via-rose-400 to-pink-300 p-1 shadow-lg mb-3 flex items-center justify-center">
-                    <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-pink-600 font-display font-black text-3xl">
-                      RV
+                  {/* Real Portrait Avatar */}
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-pink-500 via-rose-400 to-pink-300 p-1 shadow-lg mb-3 flex items-center justify-center overflow-hidden">
+                    <div className="w-full h-full rounded-full bg-pink-100 overflow-hidden flex items-start justify-center pt-1 shadow-inner">
+                      <img
+                        src="/rishita-portrait.png"
+                        alt={data.personal.name}
+                        className="w-full h-full object-cover object-top scale-125"
+                      />
                     </div>
                   </div>
 

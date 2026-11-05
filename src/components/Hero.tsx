@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { CloudConsole } from './CloudConsole'
+import { HeroPortrait } from './HeroPortrait'
 import { ArrowDown, Sparkles, ExternalLink, ShieldCheck, Terminal, Award, ChevronRight } from 'lucide-react'
 import { soundFX } from '../utils/sound'
 import { PortfolioData } from '../types/portfolio'
@@ -12,6 +13,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ data, isEditMode, onUpdatePersonal }) => {
   const [roleIndex, setRoleIndex] = useState(0)
+  const [viewMode, setViewMode] = useState<'portrait' | 'console'>('portrait')
 
   // Dynamic profession rotating effect
   useEffect(() => {
@@ -149,12 +151,52 @@ export const Hero: React.FC<HeroProps> = ({ data, isEditMode, onUpdatePersonal }
 
           </div>
 
-          {/* Right Column: Live Cloud & Automation Hub */}
-          <div className="lg:col-span-5 relative flex items-center justify-center">
-            {/* Soft pink halo behind console */}
-            <div className="absolute inset-2 rounded-full bg-gradient-to-tr from-pink-300/35 via-rose-200/25 to-transparent blur-2xl pointer-events-none" />
-            
-            <CloudConsole />
+          {/* Right Column: Hero Visual Showcase (Portrait & Cloud Hub) */}
+          <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
+            {/* View Mode Toggle Pill */}
+            <div className="mb-3 flex items-center gap-1 p-1 rounded-full bg-white/80 backdrop-blur-md border border-pink-200/80 shadow-xs z-30">
+              <button
+                onClick={() => {
+                  soundFX.playClick()
+                  setViewMode('portrait')
+                }}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium transition-all ${
+                  viewMode === 'portrait'
+                    ? 'bg-pink-600 text-white shadow-xs'
+                    : 'text-zinc-600 hover:text-pink-600'
+                }`}
+              >
+                <span>🌸 Portrait</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  soundFX.playClick()
+                  setViewMode('console')
+                }}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium transition-all ${
+                  viewMode === 'console'
+                    ? 'bg-pink-600 text-white shadow-xs'
+                    : 'text-zinc-600 hover:text-pink-600'
+                }`}
+              >
+                <span>⚡ Cloud Hub</span>
+              </button>
+            </div>
+
+            {/* Visual View */}
+            <div className="w-full relative">
+              {viewMode === 'portrait' ? (
+                <HeroPortrait
+                  name={data.personal.name}
+                  title={data.personal.title}
+                  university={data.personal.university}
+                  location={data.personal.location}
+                />
+              ) : (
+                <CloudConsole />
+              )}
+            </div>
           </div>
 
         </div>
