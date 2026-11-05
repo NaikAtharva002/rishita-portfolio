@@ -4,14 +4,29 @@
   :root {
     --font-display: 'Syne', sans-serif;
     --font-heading: 'Plus Jakarta Sans', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+
+    /* Intentional Premium Pink Design System */
+    --color-blush-bg: #fff7f9;
+    --color-surface-card: rgba(255, 255, 255, 0.88);
+    --color-surface-subtle: #ffeef3;
+    --color-primary-cherry: #9d174d;
+    --color-accent-rose: #be185d;
+    --color-accent-pink: #ec4899;
+    --color-glow-pink: rgba(236, 72, 153, 0.28);
+    --color-border-subtle: rgba(244, 114, 182, 0.25);
+    --color-border-card: rgba(251, 207, 232, 0.8);
+    --color-text-title: #18181b;
+    --color-text-body: #4b5563;
   }
 
   body {
     font-family: var(--font-body);
-    color: #1e1b1e;
-    background-color: #fff7f9;
+    color: var(--color-text-title);
+    background-color: var(--color-blush-bg);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
   h1, h2, h3, .font-heading {
@@ -27,35 +42,36 @@
   }
 }
 
-/* Glassmorphism & Aesthetics */
+/* Glassmorphism & High-Craft Shadows */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(244, 114, 182, 0.22);
-  box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.08), 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 114, 182, 0.25);
+  box-shadow: 0 16px 40px -15px rgba(236, 72, 153, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.02);
 }
 
 .glass-panel-subtle {
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(251, 207, 232, 0.35);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(251, 207, 232, 0.45);
 }
 
 .glass-panel-dark {
-  background: rgba(30, 27, 30, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(244, 114, 182, 0.3);
+  background: rgba(24, 24, 27, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 114, 182, 0.35);
+  box-shadow: 0 20px 50px -12px rgba(157, 23, 77, 0.3);
 }
 
 .pink-glow {
-  box-shadow: 0 0 45px -8px rgba(244, 63, 94, 0.25);
+  box-shadow: 0 0 50px -10px rgba(236, 72, 153, 0.3);
 }
 
 .pink-gradient-text {
-  background: linear-gradient(135deg, #be185d 0%, #db2777 50%, #f43f5e 100%);
+  background: linear-gradient(135deg, #9d174d 0%, #db2777 45%, #f43f5e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -79,30 +95,45 @@
   background: #db2777;
 }
 
-/* Subtle animations */
+/* Sophisticated animations */
 @keyframes floatSlow {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(1deg); }
+  50% { transform: translateY(-7px) rotate(0.6deg); }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 0.9; transform: scale(1.04); }
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.88; transform: scale(1.03); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .animate-float {
-  animation: floatSlow 6s ease-in-out infinite;
+  animation: floatSlow 5.5s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
-/* Perspective for 3D card tilt */
+.animate-shimmer {
+  animation: shimmer 2.2s infinite;
+}
+
+/* 3D Perspective utilities */
+.perspective-container {
+  perspective: 1200px;
+}
+
 .preserve-3d {
   transform-style: preserve-3d;
 }
 
-.perspective-1000 {
-  perspective: 1000px;
+/* Smooth portrait bottom blend mask */
+.portrait-mask {
+  mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 98%);
 }
